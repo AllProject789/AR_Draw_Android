@@ -92,7 +92,8 @@ def main():
 
     changed = gallery != old.get("gallery") or categories != old.get("categories")
     version = old.get("version", 0) + (1 if changed else 0)
-    manifest = {"version": version, "categories": categories, "gallery": gallery}
+    # Keep lessons / video_lessons / ai_prompts written by build_extras.py.
+    manifest = {**old, "version": version, "categories": categories, "gallery": gallery}
 
     print(f"{len(gallery)} images in {len(categories)} categories; "
           f"{written} converted, {len(stale)} removed, manifest v{version}{' (unchanged)' if not changed else ''}")

@@ -11,3 +11,10 @@ and loads each image from `content/<path>`. Pushes reach users in about 5 minute
 3. Commit and push `content/`.
 
 See `content/README.md` for manifest fields (premium, hide, rename, order).
+
+## Lessons, video tutorials, AI prompt samples
+
+`python3 tools/build_extras.py /path/to/export` rebuilds `content/lessons/`, `content/video_lessons/` and
+`content/ai_prompts/` and their `lessons`, `video_lessons` and `ai_prompts` arrays in `manifest.json`.
+Each lesson has a `cover` and ordered `steps` (PNG); each tutorial has a `full` video and ordered `steps` clips.
+`build_catalog.py` keeps these arrays when it rebuilds the gallery.
